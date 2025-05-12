@@ -1,0 +1,64 @@
+File creation: 
+touch f1
+Folder:
+mkdir dir1
+
+git init: intializes new empty repo in our local current directory
+git clone: used to create a local copy an existing git repository. It download all the files,branches and history to our local branch also set ups the remote origin so that we can push and pull the chnages to original repo
+
+Branch: copy of date, we created branches for enhancement the application and allows users to work on the same project without interrupting each other changes.
+types of branches:
+main: primary or stabel branch
+feature branch: for enhancement
+release branch: for every release we create a relase branch
+hotfix branch: to fix the critical issues in production
+bug fix branch: to fix bugs
+
+create a branch: git branch <branch name>
+checkout a branch: git checkout <br.name>
+list all branches: git branch
+checkout and create a new branch: git branch checkout -b <br.name>
+delet a branch locally: git branch -d <br.name> or git branch -D <br.name> (when we to delete forcefully we use 'D')
+delete a branch at remote: git push origin -d <br.name>
+
+cherry-pick: is used to apply a specific commit from one branch to another branch without merging whole branch.
+git cherry-pick <br.name>
+
+git revert: is a command used to undo changes made by a specific commit by creating a new commit that reverses those changes
+git revert <commit id>
+
+git reset: git reset is a command to undo changes by moving head pointer to specific commit. It can unstage stages or discard them entirely depending on type of reset(like hard,soft and mixed)
+ staging to workspace: git reset HEAD <filename>
+ local to staging: git reset --soft <CID-1> (that means we have to take previous commit id)
+ localrepo to workspace: git reset --mixed <CID-1> 
+ delete the cid completely: git reset --hard <CID -1>
+
+git commit -am "<somemessage>" --> this is used when we want to move the file from workspace to direct local repo and this command will not for new files only for already existing files..
+
+Amend: git ammend is used to modify the most recent commit messge or changes(suppose we forget to add one more file to commit then we can do with ammend command) 
+        It doesn't create a new commit instead of it modifies the most recent commit.
+git commit --amend -m "message"
+
+Git merge and rebase:
+git merge: git merge combines the histories of two branches and create a new merge commit. it keeps the complete history and is useful gfor collaboration.
+git rebase: git rebase move your branch commits and reapplies on top of another branch. It creates a linear,cleaner history but rewrites the commit hashes.
+
+git pull and fetch:
+git pull: git pull does both fetching and merging at one time. It downloads the changes from the remote repository and merge automaticall in to your local branch.
+git fetch: it only downloads the changes fromn the remote repo in to your local .git folder. It doesn't merge in to your local branch.
+
+Git Features:
+Distributed version control system: every developer has a full copy of a repo with histories.
+Branching and merging: easy to create branches and merging
+Fast performance: most operations are local and very fast
+collabartive: using Github
+staging area: as we can view the chnages before commiting
+data integrity: as all changes are tracked using commit hashes.
+undo capability : we can revert commits and go back to previous versions, rollbacks.
+
+fork: fork is a copy of an exixting git repository which is created on our GitHub account. It allows user to work independently on the same project without interrupting the orginal repo. developers usually create a fork to contribute changes and then create a pull request to suggest updates to the orginal project.
+
+git webhook: is a way to automatically triggers action or notification when a certian event occurs in a git repository.
+for example: when we push a commit to a git repository, a webhook can notify a continious integration server to run tests and deploy the code.
+git webhooks set up in git hosting services(like GitHub, gitlab, bit bucket accounts) and they send https requests to a specified url when an event (like pull request, push request) happens.
+
